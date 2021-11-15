@@ -1,0 +1,33 @@
+<%= form_with(model: @category, local: true) do |f| %>
+    <% if @category.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Este tipo no se pudo crear por las siguientes razones</h2>
+            <ul>
+                <% @category.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-group' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :public %>
+        <%= f.check_box :public, class: 'form-group' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :category_id %>
+        <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'title', '0'), include_blank: true, class: 'form-group' %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit %>
+    </div>
+
+
+<% end %>

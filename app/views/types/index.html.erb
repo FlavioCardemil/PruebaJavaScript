@@ -1,0 +1,23 @@
+<%= render 'form', type: @type %>
+
+<h1>Tipos</h1>
+
+<table class="table table-striped table-bordered table-hover text-center">
+    <thead>
+        <tr>
+        <th>Title</th>
+        <th>Title</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @types.each do |type| %>
+        <tr>
+            <td><%= type.id %></td>
+            <td><%= type.title %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= pie_chart @bookmarks.group("type_id").count %>

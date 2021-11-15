@@ -1,0 +1,2 @@
+$("#bookmark_form").html(" ")
+$("#bookmark-<%= @bookmark.id %>").replaceWith('<%= j render(@bookmark, bookmark: @bookmark)%>')

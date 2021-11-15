@@ -1,0 +1,33 @@
+<%= form_with(model: @bookmark, remote: true) do |f| %>
+    <% if @bookmark.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Este tipo no se pudo crear por las siguientes razones</h2>
+            <ul>
+                <% @bookmark.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-group' %>
+    </div>
+
+    <div class="field">
+        <%= f.label :type_id %>
+        <%= f.collection_select :type_id, @types, :id, :title %>
+    </div>
+
+    <div class="field">
+        <%= f.label :category_id %>
+        <%= f.collection_select :category_id, @categories, :id, :title %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit %>
+    </div>
+
+
+<% end %>

@@ -1,0 +1,25 @@
+<%= render 'form', category: @category %>
+
+<h1>Categorias</h1>
+
+    <table class="table table-striped table-bordered table-hover text-center">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Public</th>
+            <th>ID Padre</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.id %></td>
+                <td><%= category.title %></td>
+                <td><%= category.public %></td>
+                <td><%= category.category_id %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>    
